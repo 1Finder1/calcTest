@@ -7,24 +7,40 @@
             mocha.setup('bdd');
         </script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/chai/3.5.0/chai.js"></script>
-        <script>
-            let assert = chai.assert;
-        </script>
+        <link rel="stylesheet" href="style.css">
     </head>
     <body>
-        <script>
-            function pow(x, n) {
-                let result = 1;
+        <div class="calculator">
+            <div class="output"></div>
+            <div class="actions">
+                <button data-action="**">^</button>
+                <button data-action="del"><-</button>
+                <button data-action="clear">AC</button>
+                <button data-action="/">/</button>
+                <button data-action="7">7</button>
+                <button data-action="8">8</button>
+                <button data-action="9">9</button>
+                <button data-action="*">*</button>
+                <button data-action="4">4</button>
+                <button data-action="5">5</button>
+                <button data-action="6">6</button>
+                <button data-action="+">+</button>
+                <button data-action="1">1</button>
+                <button data-action="2">2</button>
+                <button data-action="3">3</button>
+                <button data-action="+">+</button>
+                <button data-action="empty"></button>
+                <button data-action="0">0</button>
+                <button data-action=".">,</button>
+                <button data-action="=">=</button>
+            </div>
 
-                for (let i = 0; i < n; i++) {
-                    result *= x;
-                }
-
-                return result;
-            }
-        </script>
+        </div>
+        <script src="calculator.js"></script>
         <script src="test.js"></script>
+
         <div id="mocha"></div>
+
         <script>
             mocha.run();
         </script>
