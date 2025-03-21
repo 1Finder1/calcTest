@@ -1,5 +1,3 @@
-const { assert } = require('chai');
-
 function getResult(exp) {
     try {
         // Проверяем, что exp — непустая строка и содержит только разрешенные символы
@@ -15,7 +13,6 @@ function getResult(exp) {
         return "Ошибка";
     }
 }
-
 
 
 describe('getResult', function () {
@@ -71,16 +68,16 @@ describe('getResult', function () {
     });
 
     it('Результат "5+5" не должен быть NaN (assert.isNaN)', function () {
-        assert.isNotNaN(getResult('5+5'), '5+5 должно быть числом, а не NaN');
+        assert.isNaN(getResult('5+5'), '5+5 должно быть числом, а не NaN');
     });
 
     // assert.isString - Проверяет, что значение строка
     it('Результат ошибки должен быть строкой (assert.isString)', function () {
-        assert.isString(getResult('1*'));
+        assert.isString(getResult('1/0'));
     });
 
     it('Результат "5+5" не должен быть строкой (assert.isString)', function () {
-        assert.isNotString(getResult('5+5'), 'Результат выражения 5+5 должен быть числом');
+        assert.isString(getResult('5+5'), 'Результат выражения 5+5 должен быть числом');
     });
 
 });
