@@ -7,7 +7,7 @@ const operationList = [
     '/',
     '*',
     '+',
-    '-'
+    '-',
 ]
 
 const actionList = [
@@ -23,6 +23,8 @@ const actionList = [
     '9',
     '0',
     '.',
+    'del',
+    '='
 ]
 
 let firstPart = ''
@@ -118,7 +120,7 @@ function onClick(event) {
 
 function onKeyboardClick(event) {
     console.log(event.key)
-    const action = event.key.replace('^','**').replace('Backspace', 'del')
+    const action = event.key.replace('^','**').replace('Backspace', 'del').replace('Enter', '=')
 
     if (!actionList.includes(action)) return
 
@@ -129,11 +131,11 @@ function onKeyboardClick(event) {
 function getResult(exp) {
     try {
         const fun = new Function(`return ${exp}`)
-        return fun()
+        return fun() + ''
     } catch (e) {
         console.log(e)
         clearOnInput = true
-        return 'Error'
+        return e.message
     }
 }
 
