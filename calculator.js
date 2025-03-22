@@ -146,7 +146,7 @@ function getResult(exp) {
     } catch (e) {
         console.log(e)
         clearOnInput = true
-        return e.message
+        return 'Ошибка ввода'
     }
 }
 
