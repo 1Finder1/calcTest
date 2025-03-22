@@ -134,13 +134,15 @@ function getResult(exp) {
         const result = fun()
 
         if (result < 1/10**8) {
+            clearOnInput = true
             return 'Маленькое число'
         }
         if (result > 10**8) {
+            clearOnInput = true
             return 'Большое число'
         }
 
-        return fun() + ''
+        return result.toString()
     } catch (e) {
         console.log(e)
         clearOnInput = true
