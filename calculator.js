@@ -35,7 +35,7 @@ let clearOnInput = false
 
 function showExpression() {
     firstPartOutput.textContent = `${firstPart} ${operation}`
-    currentPartOutput.textContent = `${currentPart}`
+    currentPartOutput.textContent = currentPart
 
     firstPartOutput.scrollLeft = firstPartOutput.scrollWidth;
     currentPartOutput.scrollLeft = currentPartOutput.scrollWidth;
@@ -131,6 +131,15 @@ function onKeyboardClick(event) {
 function getResult(exp) {
     try {
         const fun = new Function(`return ${exp}`)
+        const result = fun()
+
+        if (result < 1/10**8) {
+            return 'Маленькое число'
+        }
+        if (result > 10**8) {
+            return 'Большое число'
+        }
+
         return fun() + ''
     } catch (e) {
         console.log(e)

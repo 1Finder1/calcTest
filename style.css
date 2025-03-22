@@ -81,6 +81,7 @@ button[data-action="="] {
 
 #current_part {
     height: fit-content;
+    white-space: nowrap;
 }
 
 #first_part {
